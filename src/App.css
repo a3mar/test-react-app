@@ -1,0 +1,12 @@
+#root {
+  margin: 2em auto;
+  min-width: 30em;
+  max-width: 50em;
+  border: 1px solid gray;
+  border-radius: 2em;
+  padding: 5em 2em;
+  text-align: center;
+}
+
+
+

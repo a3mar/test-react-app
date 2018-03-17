@@ -1,12 +1,42 @@
-#root {
-  margin: 2em auto;
-  min-width: 30em;
-  max-width: 50em;
-  border: 1px solid gray;
-  border-radius: 2em;
-  padding: 5em 2em;
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Acme', sans-serif; 
+  /*font-family: 'Righteous', cursive; */
+  /*font-family: 'Alfa Slab One', cursive;*/
 }
+
+.header {
+  height: 1000px;
+  background: url(./img/1.jpg) 70% 90% no-repeat;
+  filter: opacity(30%);
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  margin-top: -1000px;
+}
+
+.caption p {
+font-size: 20vw;
+background: url(./img/1.jpg) 70% 90% no-repeat; 
+width: 100%;
+-webkit-text-fill-color: transparent;
+-webkit-background-clip: text; 
+text-align: center;   
+}
+
+.content p {
+  font-size: 9vw;
+  background: url(./img/1.jpg) 70% 80% no-repeat; 
+  display: inline-block; 
+  width: 100%;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text; 
+  text-align: center;  
+}
+
 
 
 

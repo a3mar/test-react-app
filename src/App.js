@@ -3,29 +3,37 @@ import './App.css';
 
 class App extends Component {
 
-constructor(props) {
-  super(props)
-  let val = new Date('2018-03-18T023:00') - new Date()
-  console.log(this.ms2pretty(val))
-  this.state = { values: this.ms2pretty(val) }
-}
+  constructor(props) {
+    super(props)
+    let val = this.ms2pretty(new Date('2018-04-07T09:00') - new Date())
+    this.state = { values: val }
+  }
 
 
-componentDidMount() {                                                                                                                                                                
-  this.timerID = setInterval(
-    () => { 
-      let values = this.ms2pretty(new Date('2018-04-07T09:00') - new Date())
-      this.setState({ values: values })
-    },
-    1000
-  )
-} 
+  componentDidMount() {
+    this.timerID = setInterval(
+      () => {
+        let values = this.ms2pretty(new Date('2018-04-07T09:00') - new Date())
+        this.setState({ values: values })
+      },
+      1000
+    )
+  }
 
-ms2pretty =  (ms, divider = null, result = [] ) => {
-  if (divider == null) {
-    let secs = ms / 1000
-    let days = secs / 3600 / 24
-    return this.ms2pretty(days % 1, 24, [ Math.floor(days) ] )
+  format = (num) => {
+    let str = num.toString()
+    if (str.length < 2) {
+      return `0${str}`
+    } else {
+      return str
+    }
+  }
+
+  ms2pretty = (ms, divider = null, result = []) => {
+    if (divider == null) {
+      let secs = ms / 1000
+      let days = secs / 3600 / 24
+      return this.ms2pretty(days % 1, 24, [Math.floor(days)])
     } else {
       if (result.length === 4) {
         return result
@@ -38,13 +46,10 @@ ms2pretty =  (ms, divider = null, result = [] ) => {
 
   render() {
     return (
-      <div className="App">
-          <h1 className="App-title">До Черногории осталось <br />
-          {this.state.values[0]} суток <br /> 
-          {this.state.values[1]} часов <br /> 
-          {this.state.values[2]} минут <br />
-          {this.state.values[3]} секунд
-        </h1>
+      <div>
+        <div className='content'>
+          <p>{this.state.values[0]} days<br /> {this.format(this.state.values[1])}:{this.format(this.state.values[2])}:{this.format(this.state.values[3])}</p>
+        </div>
       </div>
     );
   }
